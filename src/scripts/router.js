@@ -1,10 +1,13 @@
 import $ from "jquery";
 import searchBtnHrefChanger from "./search-bar";
 
+import searchPage from "./page-scripts/search.page.js";
+import favoritePage from "./page-scripts/favorite.page.js";
+
 const pagesId = ["#home", "#search", "#favorite", "#404"];
 
 // melakukan checking terhadap id sebelum merender halaman
-const pageActivator = async (targetId) => {
+function pageActivator(targetId) {
   const idIsValid = pagesId.includes(targetId);
   const pageTarget = idIsValid ? targetId : "#404";
 
@@ -18,7 +21,22 @@ const pageActivator = async (targetId) => {
   pagesId.forEach((pageId) => {
     if (pageId !== pageTarget) $(pageId).addClass("hidden");
   });
-};
+
+  if (idIsValid) pageScriptLoader();
+}
+
+// akan menjalankan script halaman sesuai dengan id pada parameter
+function pageScriptLoader(targetId) {
+  switch (targetId) {
+    case "#search":
+      searchPage();
+      break;
+
+    case "#favorite":
+      favoritePage();
+      break;
+  }
+}
 
 // initial load
 $(window).on("load", () => pageActivator(window.location.hash));

@@ -74,49 +74,36 @@
     </section>
 
     <!-- search page -->
-    <section id="search" class="container mx-auto px-8 pt-24">
-      <header>
+    <section id="search" class="container mx-auto hidden px-8 pt-24">
+      <div>
         <h1 class="text-3xl font-bold text-slate-200">"Kimetsu No Yaiba"</h1>
         <span class="text-2xl font-medium text-slate-500"
           >Found 10 results</span
         >
-      </header>
+      </div>
 
       <!-- anime list -->
-      <main
+      <ul
         class="grid auto-cols-fr grid-cols-1 justify-items-center gap-5 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
       >
-        <li
-          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
-        ></li>
-        <li
-          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
-        ></li>
-        <li
-          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
-        ></li>
-        <li
-          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
-        ></li>
-        <li
-          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
-        ></li>
-        <li
-          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
-        ></li>
-        <li
-          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
-        ></li>
-        <li
-          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
-        ></li>
-        <li
-          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
-        ></li>
-        <li
-          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
-        ></li>
-      </main>
+        <anime-preview
+          image="https://source.unsplash.com/random"
+          alt="random"
+          class="h-80 rounded-lg sm:w-56"
+        >
+          <span
+            slot="score"
+            class="flex items-center gap-1 text-sm font-medium text-amber-400"
+          >
+            <i class="fa-solid fa-star"></i>
+            8.5</span
+          >
+          <span slot="title" class="w-full break-words font-bold text-slate-300"
+            >hewan manusia akan jika tidak bisa tidur maka jangan bebop</span
+          >
+          <span slot="rating" class="pb-3 text-sm text-slate-300/90">R+</span>
+        </anime-preview>
+      </ul>
     </section>
 
     <!-- favorite anime page -->
