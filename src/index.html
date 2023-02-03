@@ -3,8 +3,138 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Anime List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Your Anime List | Home</title>
   </head>
-  <body></body>
+  <body class="bg-slate-900">
+    <!-- navbar -->
+    <div class="fixed top-0 z-20 w-full bg-slate-600/20 py-3 backdrop-blur-xl">
+      <nav class="container mx-auto flex items-center justify-between px-8">
+        <a
+          data-page-router
+          href="#home"
+          class="hidden text-xl font-bold text-slate-300 md:block"
+          >Your Anime List</a
+        >
+
+        <!-- search bar -->
+        <div
+          class="flex basis-full overflow-clip rounded-full bg-slate-700 md:basis-1/2"
+        >
+          <input
+            id="search-bar"
+            type="search"
+            placeholder="Search For Anime..."
+            class="block w-full rounded-l-full border-0 bg-transparent px-6 py-2 text-lg text-slate-300 placeholder-slate-400 focus:outline-teal-500 focus:ring-teal-500"
+          />
+          <a
+            href="#home"
+            id="search-button"
+            class="flex basis-16 items-center justify-center rounded-r-full"
+          >
+            <i class="fa fa-search text-2xl text-slate-500"></i>
+          </a>
+        </div>
+
+        <!-- favorite -->
+        <a
+          data-page-router
+          href="#favorite"
+          class="hidden rounded bg-teal-700 px-5 py-2.5 font-medium text-white transition-colors hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800 md:inline"
+          >Favorite</a
+        >
+      </nav>
+    </div>
+
+    <!-- landing page -->
+    <section id="home" class="hidden">
+      <header class="relative flex h-screen w-full items-center justify-center">
+        <video autoplay loop class="absolute h-screen w-full object-cover">
+          <source src="/src/public/video/landing-video.mp4" type="video/mp4" />
+        </video>
+
+        <div
+          class="relative z-10 flex h-full w-full items-center justify-center bg-black/50"
+        >
+          <div class="container space-y-5 [&>*]:text-center">
+            <h1 class="text-6xl font-bold text-slate-200">Your Anime List</h1>
+            <h2 class="text-2xl font-medium text-slate-200/80">
+              The place where
+              <u class="text-teal-400 underline-offset-4">otaku</u> gathers.
+            </h2>
+          </div>
+        </div>
+      </header>
+    </section>
+
+    <!-- search page -->
+    <section id="search" class="container mx-auto px-8 pt-24">
+      <header>
+        <h1 class="text-3xl font-bold text-slate-200">"Kimetsu No Yaiba"</h1>
+        <span class="text-2xl font-medium text-slate-500"
+          >Found 10 results</span
+        >
+      </header>
+
+      <!-- anime list -->
+      <main
+        class="grid auto-cols-fr grid-cols-1 justify-items-center gap-5 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
+      >
+        <li
+          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        ></li>
+        <li
+          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        ></li>
+        <li
+          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        ></li>
+        <li
+          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        ></li>
+        <li
+          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        ></li>
+        <li
+          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        ></li>
+        <li
+          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        ></li>
+        <li
+          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        ></li>
+        <li
+          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        ></li>
+        <li
+          class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        ></li>
+      </main>
+    </section>
+
+    <!-- favorite anime page -->
+    <section id="favorite" class="pt-pt-24 hidden"></section>
+
+    <!-- 404 page -->
+    <section id="404" class="hidden">
+      <div class="flex h-screen flex-col items-center justify-center gap-5">
+        <div>
+          <h1 class="text-3xl font-bold text-slate-200">Error 404</h1>
+          <span class="text-2xl font-medium text-slate-500"
+            >Can't seem to find the page</span
+          >
+        </div>
+        <a href="#home" class="text-teal-400">
+          <u class="underline-offset-4">Back To Home Page</u>
+        </a>
+      </div>
+    </section>
+  </body>
 </html>
