@@ -1,7 +1,7 @@
 import "../style.css";
 import "../../dist/style.css";
 
-import "./components/anime-preview.component.js";
+import "./custom-elements/anime-preview.component.js";
 
-import "./search-bar.js";
-import "./router.js";
+import "./component-scripts/search-bar.js";
+import "./helpers/router.js";

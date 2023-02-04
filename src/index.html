@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
@@ -74,36 +74,66 @@
     </section>
 
     <!-- search page -->
-    <section id="search" class="container mx-auto hidden px-8 pt-24">
-      <div>
-        <h1 class="text-3xl font-bold text-slate-200">"Kimetsu No Yaiba"</h1>
-        <span class="text-2xl font-medium text-slate-500"
-          >Found 10 results</span
+    <section id="search" class="container mx-auto hidden px-8">
+      <!-- when search is not empty -->
+      <div id="search-list-wrapper" class="hidden pt-24">
+        <!-- specifier -->
+        <h1 id="query-specifier" class="text-3xl font-bold text-slate-200"></h1>
+        <span
+          id="result-qty-specifier"
+          class="text-2xl font-medium text-slate-500"
+        ></span>
+
+        <!-- anime list -->
+        <ul
+          id="search-list"
+          class="grid grid-cols-1 justify-items-center gap-5 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
         >
+          <anime-preview
+            image="https://source.unsplash.com/random"
+            alt="random"
+            class="h-80 w-full rounded-lg sm:w-56"
+          >
+            <span
+              slot="score"
+              class="flex items-center gap-1 text-sm font-medium text-amber-400"
+            >
+              <i class="fa-solid fa-star"></i>
+              8.5</span
+            >
+            <span
+              slot="title"
+              class="w-full break-words font-bold text-slate-300"
+              >lorem10</span
+            >
+            <span slot="rating" class="pb-3 text-sm text-slate-300/90">R+</span>
+          </anime-preview>
+        </ul>
+
+        <!-- loading spinner or end of results -->
+        <span
+          id="more-content-indicator"
+          class="w-full py-5 text-center text-xl text-slate-500"
+        >
+          <i class="fas fa-spinner animate-spin"></i>
+        </span>
+
+        <!-- infinite scroller observer element -->
+        <div id="load-more-observer"></div>
       </div>
 
-      <!-- anime list -->
-      <ul
-        class="grid auto-cols-fr grid-cols-1 justify-items-center gap-5 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
+      <!-- empty results -->
+      <div
+        id="empty-search"
+        class="hidden h-screen flex-col items-center justify-center"
       >
-        <anime-preview
-          image="https://source.unsplash.com/random"
-          alt="random"
-          class="h-80 rounded-lg sm:w-56"
-        >
-          <span
-            slot="score"
-            class="flex items-center gap-1 text-sm font-medium text-amber-400"
+        <div>
+          <h1 class="text-3xl font-bold text-slate-200">Nothing Here ...</h1>
+          <span class="text-2xl font-medium text-slate-500"
+            >Can't seem to find anything, try a different titles</span
           >
-            <i class="fa-solid fa-star"></i>
-            8.5</span
-          >
-          <span slot="title" class="w-full break-words font-bold text-slate-300"
-            >hewan manusia akan jika tidak bisa tidur maka jangan bebop</span
-          >
-          <span slot="rating" class="pb-3 text-sm text-slate-300/90">R+</span>
-        </anime-preview>
-      </ul>
+        </div>
+      </div>
     </section>
 
     <!-- favorite anime page -->
@@ -113,7 +143,7 @@
     <section id="404" class="hidden">
       <div class="flex h-screen flex-col items-center justify-center gap-5">
         <div>
-          <h1 class="text-3xl font-bold text-slate-200">Error 404</h1>
+          <h1 class="text-3xl font-bold text-slate-200">Error 404 ...</h1>
           <span class="text-2xl font-medium text-slate-500"
             >Can't seem to find the page</span
           >
@@ -123,5 +153,48 @@
         </a>
       </div>
     </section>
+
+    <!-- skeleton  -->
+    <div
+      id="anime-preview-skeleton"
+      class="container mx-auto hidden h-screen grid-cols-1 justify-items-center gap-5 py-10 pt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
+    >
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+      <div
+        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+      ></div>
+    </div>
   </body>
 </html>

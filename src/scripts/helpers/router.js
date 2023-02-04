@@ -1,8 +1,8 @@
 import $ from "jquery";
-import searchBtnHrefChanger from "./search-bar";
+import searchBtnHrefChanger from "../component-scripts/search-bar";
 
-import searchPage from "./page-scripts/search.page.js";
-import favoritePage from "./page-scripts/favorite.page.js";
+import searchPage from "../page-scripts/search.page.js";
+import favoritePage from "../page-scripts/favorite.page.js";
 
 const pagesId = ["#home", "#search", "#favorite", "#404"];
 
@@ -22,7 +22,7 @@ function pageActivator(targetId) {
     if (pageId !== pageTarget) $(pageId).addClass("hidden");
   });
 
-  if (idIsValid) pageScriptLoader();
+  if (idIsValid) pageScriptLoader(targetId);
 }
 
 // akan menjalankan script halaman sesuai dengan id pada parameter
@@ -39,10 +39,16 @@ function pageScriptLoader(targetId) {
 }
 
 // initial load
-$(window).on("load", () => pageActivator(window.location.hash));
+$(window).on("load", () => {
+  const hash = window.location.hash;
+
+  if (hash === "#search") history.pushState(null, null, "#home");
+
+  pageActivator(window.location.hash);
+});
 
 // akan dieksekusi setiap ada pergantian url
-window.onpopstate = (e) => {
+window.onpopstate = () => {
   const { hash: id } = window.location;
 
   pageActivator(id);
