@@ -2,9 +2,9 @@ import $ from "jquery";
 import searchBtnHrefChanger from "../component-scripts/search-bar";
 
 import searchPage from "../page-scripts/search.page.js";
-import favoritePage from "../page-scripts/favorite.page.js";
+import savedPage from "../page-scripts/saved.page.js";
 
-const pagesId = ["#home", "#search", "#favorite", "#404"];
+const pagesId = ["#home", "#search", "#saved", "#404"];
 
 // melakukan checking terhadap id sebelum merender halaman
 function pageActivator(targetId) {
@@ -32,8 +32,8 @@ function pageScriptLoader(targetId) {
       searchPage();
       break;
 
-    case "#favorite":
-      favoritePage();
+    case "#saved":
+      savedPage();
       break;
   }
 }

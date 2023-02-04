@@ -6,6 +6,7 @@ template.innerHTML = `
     }
 
     :host {
+      cursor: pointer;
       display: block;
       overflow: clip;
       position: relative;
@@ -21,6 +22,13 @@ template.innerHTML = `
       justify-content: flex-end;
       gap: 5px;
       height: 100%;
+      transition-property: color, background-color;
+      transition-timing-function: ease-out;
+      transition-duration: 150ms;
+    }
+
+    div:hover {
+      background-color: rgba(0, 0, 0, 0.4); 
     }
 
     img {

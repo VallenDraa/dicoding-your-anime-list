@@ -6,7 +6,7 @@ import { formatAnimeData, formatPageData } from "../helpers/data-formatter.js";
 let query = "";
 
 /** @type {T.AnimeData[]} */
-let queryResults = [];
+export let queryResults = [];
 
 /** @type {T.Pagination} */
 let pagesData = {};
@@ -76,7 +76,7 @@ function renderPreviews(results) {
         data-id="${data.id}"
         image="${data.imageUrl}"
         alt="${data.title}"
-        class="h-80 w-full rounded-lg sm:w-56"
+        class="h-[600px] sm:h-80 w-full rounded-lg sm:w-56"
        >
         <span
           slot="score"
@@ -88,8 +88,9 @@ function renderPreviews(results) {
         <span
           slot="title"
           class="w-full break-words font-bold text-slate-300"
-          >${data.title}</span
         >
+          ${data.title}
+        </span>
         <span slot="rating" class="pb-3 text-sm text-slate-300/90">${data.rating}</span>
       </anime-preview>`
     );
@@ -129,7 +130,6 @@ function loadMoreResults() {
   }
 
   // ubah indikator loading konten sesuai kondisi
-
   $("#more-content-indicator").html(
     pagesData.hasNextPage
       ? '<i class="fas fa-spinner animate-spin"></i>'

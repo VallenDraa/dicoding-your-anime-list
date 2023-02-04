@@ -13,7 +13,6 @@
  * @property {number} aired
  * @property {Array<string>} genres
  * @property {boolean} isFavorite
- *
  */
 export {};
 

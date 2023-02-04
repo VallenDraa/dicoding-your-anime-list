@@ -10,9 +10,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Your Anime List | Home</title>
+    <title>Your Anime List</title>
   </head>
-  <body class="bg-slate-900">
+  <body
+    class="bg-slate-900 scrollbar-thin scrollbar-track-slate-900 scrollbar-thumb-slate-700 hover:scrollbar-thumb-teal-600"
+  >
     <!-- navbar -->
     <div class="fixed top-0 z-20 w-full bg-slate-600/20 py-3 backdrop-blur-xl">
       <nav class="container mx-auto flex items-center justify-between px-8">
@@ -31,23 +33,23 @@
             id="search-bar"
             type="search"
             placeholder="Search For Anime..."
-            class="block w-full rounded-l-full border-0 bg-transparent px-6 py-2 text-lg text-slate-300 placeholder-slate-400 focus:outline-teal-500 focus:ring-teal-500"
+            class="block w-full rounded-l-full border-0 bg-transparent px-6 py-2 text-lg text-slate-300 placeholder-slate-400 focus:outline-teal-600 focus:ring-teal-600"
           />
           <a
             href="#home"
             id="search-button"
-            class="flex basis-16 items-center justify-center rounded-r-full"
+            class="flex basis-16 items-center justify-center rounded-r-full text-slate-500 transition-colors focus:bg-teal-700 focus:text-white hover:bg-teal-600 hover:text-white"
           >
-            <i class="fa fa-search text-2xl text-slate-500"></i>
+            <i class="fa fa-search text-2xl"></i>
           </a>
         </div>
 
-        <!-- favorite -->
+        <!-- saved -->
         <a
           data-page-router
-          href="#favorite"
-          class="hidden rounded bg-teal-700 px-5 py-2.5 font-medium text-white transition-colors hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800 md:inline"
-          >Favorite</a
+          href="#saved"
+          class="hidden rounded bg-teal-600 px-5 py-2.5 font-medium text-white transition-colors focus:outline-none focus:ring-4 focus:ring-teal-800 hover:bg-teal-700 md:inline"
+          >Saved</a
         >
       </nav>
     </div>
@@ -63,8 +65,10 @@
           class="relative z-10 flex h-full w-full items-center justify-center bg-black/50"
         >
           <div class="container space-y-5 [&>*]:text-center">
-            <h1 class="text-6xl font-bold text-slate-200">Your Anime List</h1>
-            <h2 class="text-2xl font-medium text-slate-200/80">
+            <h1 class="text-4xl font-bold text-slate-200 sm:text-6xl">
+              Your Anime List
+            </h1>
+            <h2 class="text-base font-medium text-slate-200/80 sm:text-2xl">
               The place where
               <u class="text-teal-400 underline-offset-4">otaku</u> gathers.
             </h2>
@@ -88,27 +92,7 @@
         <ul
           id="search-list"
           class="grid grid-cols-1 justify-items-center gap-5 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
-        >
-          <anime-preview
-            image="https://source.unsplash.com/random"
-            alt="random"
-            class="h-80 w-full rounded-lg sm:w-56"
-          >
-            <span
-              slot="score"
-              class="flex items-center gap-1 text-sm font-medium text-amber-400"
-            >
-              <i class="fa-solid fa-star"></i>
-              8.5</span
-            >
-            <span
-              slot="title"
-              class="w-full break-words font-bold text-slate-300"
-              >lorem10</span
-            >
-            <span slot="rating" class="pb-3 text-sm text-slate-300/90">R+</span>
-          </anime-preview>
-        </ul>
+        ></ul>
 
         <!-- loading spinner or end of results -->
         <span
@@ -136,8 +120,8 @@
       </div>
     </section>
 
-    <!-- favorite anime page -->
-    <section id="favorite" class="pt-pt-24 hidden"></section>
+    <!-- saved anime page -->
+    <section id="saved" class="pt-pt-24 hidden"></section>
 
     <!-- 404 page -->
     <section id="404" class="hidden">
@@ -154,47 +138,158 @@
       </div>
     </section>
 
-    <!-- skeleton  -->
+    <!-- anime preview skeleton -->
     <div
       id="anime-preview-skeleton"
-      class="container mx-auto hidden h-screen grid-cols-1 justify-items-center gap-5 py-10 pt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
+      class="container mx-auto hidden h-screen grid-cols-1 justify-items-center gap-5 py-10 px-8 pt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
     >
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
       <div
-        class="h-80 w-full animate-pulse rounded-md bg-slate-700 sm:w-56"
+        class="h-[600px] w-full animate-pulse rounded-md bg-slate-800 sm:h-80 sm:w-56"
       ></div>
     </div>
+
+    <!-- modal to show the detail -->
+    <dialog
+      id="anime-detail-dialog"
+      style="overflow-y: auto"
+      class="relative w-full overflow-hidden bg-slate-800 p-0 shadow shadow-slate-900 transition-colors scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 backdrop:bg-slate-900/50 backdrop:blur-lg hover:scrollbar-thumb-teal-600 md:h-[600px] md:w-[800px]"
+    >
+      <header
+        class="sticky top-0 z-10 flex items-center justify-between bg-slate-800/30 py-2 px-6 pb-3 backdrop-blur-lg"
+      >
+        <span class="text-lg font-bold text-slate-300">Anime Detail</span>
+        <button
+          id="close-dialog"
+          class="h-10 w-10 rounded-full text-slate-500 transition-colors hover:bg-red-500/40 hover:text-white"
+        >
+          <i class="fa fa-times text-xl"></i>
+        </button>
+      </header>
+      <main class="flex flex-col gap-8 py-4 px-6">
+        <!-- anime details -->
+        <div class="flex flex-col justify-between gap-3 md:flex-row">
+          <div class="relative md:basis-1/3">
+            <img
+              id="detail-image"
+              src="https://source.unsplash.com/300x600"
+              alt="random"
+              class="sticky top-20 w-full rounded"
+            />
+          </div>
+
+          <div
+            class="flex flex-col divide-y-2 divide-slate-700 md:basis-2/3 [&>*]:py-2"
+          >
+            <div>
+              <h2 class="text-xl font-bold text-slate-300">Title</h2>
+              <span id="detail-title" class="text-slate-400"></span>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-slate-300">Score</h2>
+              <span id="detail-score" class="text-amber-400"></span>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-slate-300">Type</h2>
+              <span id="detail-type" class="text-slate-400"></span>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-slate-300">Episodes</h2>
+              <span id="detail-episodes" class="text-slate-400"></span>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-slate-300">Status</h2>
+              <span id="detail-status" class="text-slate-400"></span>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-slate-300">Aired</h2>
+              <span id="detail-aired" class="text-slate-400">
+                5-June-2012
+              </span>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-slate-300">Genres</h2>
+              <span id="detail-genres" class="text-slate-400">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, cumque.
+              </span>
+            </div>
+            <button
+              id="detail-save-btn"
+              class="flex items-center justify-center gap-1 rounded bg-slate-500 px-5 py-2.5 font-medium text-white transition-colors focus:outline-none focus:ring-4 focus:ring-slate-700 hover:bg-slate-600"
+            >
+              <i class="fa-regular fa-bookmark text-sm"></i> Save
+            </button>
+          </div>
+        </div>
+
+        <!-- anime synopsis -->
+        <div id="detail-synopsis-wrapper" class="hidden flex-col gap-2">
+          <h2 class="text-2xl font-bold text-slate-300">Synopsis</h2>
+          <p
+            id="detail-synopsis"
+            class="text-justify leading-loose text-slate-400"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
+            soluta sapiente odio, accusamus voluptatem ullam delectus enim
+            perspiciatis error nulla, officiis harum et dolor autem, tempora
+            quam fugiat provident nesciunt consequatur? Fugit, alias reiciendis
+            ipsam cum ullam rem autem harum optio modi a, fugiat praesentium
+            assumenda aliquam porro illo accusantium numquam vel voluptatum
+            voluptas. Obcaecati officia nihil autem placeat iste quos voluptate
+            dolores quod sit minima pariatur laudantium, illum veniam soluta
+            reprehenderit aliquid illo enim eius qui quidem, nulla corporis
+            assumenda cumque iusto! Expedita ratione quos doloremque magnam id
+            soluta laborum, aliquid temporibus odit voluptates repellat, culpa
+            incidunt aperiam quas.
+          </p>
+        </div>
+
+        <!-- yt embed -->
+        <div id="detail-trailer-wrapper" class="hidden flex-col gap-2">
+          <h2 class="text-2xl font-bold text-slate-300">Trailer</h2>
+          <iframe
+            id="detail-trailer"
+            class="h-96 w-full"
+            src="https://www.youtube.com/embed/TAB_v6yBXIE"
+            frameborder="0"
+            allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </main>
+    </dialog>
   </body>
 </html>
