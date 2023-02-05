@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { queryResults } from "../page-scripts/search.page.js";
+import { queryResults } from "../page-scripts/search-page.js";
 import { btnStyle, isSaved, savedAnimes } from "../helpers/saved-anime.js";
 
 import { AnimeData } from "../helpers/types.js";

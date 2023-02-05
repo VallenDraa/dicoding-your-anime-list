@@ -1,8 +1,8 @@
 import $ from "jquery";
 import searchBtnHrefChanger from "../component-scripts/search-bar";
 
-import searchPage from "../page-scripts/search.page.js";
-import savedPage from "../page-scripts/saved.page.js";
+import searchPage from "../page-scripts/search-page.js";
+import savedPage from "../page-scripts/saved-page.js";
 
 const pagesId = ["#home", "#search", "#saved", "#404"];
 

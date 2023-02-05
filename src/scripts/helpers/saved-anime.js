@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { AnimeData, Pagination } from "./types.js";
-import { queryResults } from "../page-scripts/search.page.js";
+import { queryResults } from "../page-scripts/search-page.js";
 
 export const itemQtyPerPage = 25;
 
