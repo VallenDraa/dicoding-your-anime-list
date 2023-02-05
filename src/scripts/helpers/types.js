@@ -19,7 +19,7 @@ export {};
 /**
  * @typedef {object} Pagination
  * @property {number} lastVisiblePage
- * @property {number} currentpage
+ * @property {number} currentPage
  * @property {number} totalItem
  * @property {boolean} hasNextPage
  */

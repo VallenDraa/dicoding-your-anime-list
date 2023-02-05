@@ -49,7 +49,7 @@
           data-page-router
           href="#saved"
           class="hidden rounded bg-teal-600 px-5 py-2.5 font-medium text-white transition-colors focus:outline-none focus:ring-4 focus:ring-teal-800 hover:bg-teal-700 md:inline"
-          >Saved</a
+          >Saved Animes</a
         >
       </nav>
     </div>
@@ -94,16 +94,13 @@
           class="grid grid-cols-1 justify-items-center gap-5 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
         ></ul>
 
-        <!-- loading spinner or end of results -->
+        <!-- infinite scroller observer element -->
         <span
-          id="more-content-indicator"
+          id="load-more-search"
           class="w-full py-5 text-center text-xl text-slate-500"
         >
           <i class="fas fa-spinner animate-spin"></i>
         </span>
-
-        <!-- infinite scroller observer element -->
-        <div id="load-more-observer"></div>
       </div>
 
       <!-- empty results -->
@@ -121,7 +118,37 @@
     </section>
 
     <!-- saved anime page -->
-    <section id="saved" class="pt-pt-24 hidden"></section>
+    <section id="saved" class="container mx-auto hidden px-8">
+      <!-- when saved list is not empty -->
+      <div id="saved-list-wrapper" class="hidden pt-24">
+        <!-- anime list -->
+        <ul
+          id="saved-list"
+          class="grid grid-cols-1 justify-items-center gap-5 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
+        ></ul>
+
+        <!-- infinite scroller observer element -->
+        <span
+          id="load-more-saved"
+          class="w-full py-5 text-center text-xl text-slate-500"
+        >
+          <i class="fas fa-spinner animate-spin"></i>
+        </span>
+      </div>
+
+      <!-- empty saved -->
+      <div
+        id="empty-saved"
+        class="hidden h-screen flex-col items-center justify-center"
+      >
+        <div>
+          <h1 class="text-3xl font-bold text-slate-200">Nothing Here ...</h1>
+          <span class="text-2xl font-medium text-slate-500">
+            You have no saved animes apparently
+          </span>
+        </div>
+      </div>
+    </section>
 
     <!-- 404 page -->
     <section id="404" class="hidden">
@@ -185,7 +212,7 @@
     <dialog
       id="anime-detail-dialog"
       style="overflow-y: auto"
-      class="relative w-full overflow-hidden bg-slate-800 p-0 shadow shadow-slate-900 transition-colors scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 backdrop:bg-slate-900/50 backdrop:blur-lg hover:scrollbar-thumb-teal-600 md:h-[600px] md:w-[800px]"
+      class="fixed w-full bg-slate-800 p-0 shadow shadow-slate-900 transition-colors scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 backdrop:bg-slate-900/50 backdrop:blur-lg hover:scrollbar-thumb-teal-600 md:h-[600px] md:w-[800px]"
     >
       <header
         class="sticky top-0 z-10 flex items-center justify-between bg-slate-800/30 py-2 px-6 pb-3 backdrop-blur-lg"
@@ -283,7 +310,6 @@
           <iframe
             id="detail-trailer"
             class="h-96 w-full"
-            src="https://www.youtube.com/embed/TAB_v6yBXIE"
             frameborder="0"
             allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen

@@ -1,9 +1,9 @@
-import { Pagination, AnimeData } from "./types";
+import { Pagination, AnimeData } from "./types.js";
 
 export function formatPageData(apiData) {
   /** @type {Pagination} */
   const result = {
-    currentpage: apiData.current_page,
+    currentPage: apiData.current_page,
     hasNextPage: apiData.has_next_page,
     lastVisiblePage: apiData.last_visible_page,
     totalItem: apiData.items.total,
@@ -18,7 +18,7 @@ export function formatAnimeData(apiData) {
 
   apiData.forEach((data, i) => {
     results[i] = {
-      id: data.mal_id,
+      id: data.mal_id.toString(),
       title: data.title,
       imageUrl: data.images.webp.image_url,
       episodes: data.episodes,

@@ -6,6 +6,22 @@ import savedPage from "../page-scripts/saved.page.js";
 
 const pagesId = ["#home", "#search", "#saved", "#404"];
 
+// initial load
+$(window).on("load", () => {
+  const hash = window.location.hash;
+
+  if (hash === "#search" || !hash) history.pushState(null, null, "#home");
+
+  pageActivator(window.location.hash);
+});
+
+// akan dieksekusi setiap ada pergantian url
+$(window).on("popstate", () => {
+  const { hash: id } = window.location;
+
+  pageActivator(id);
+});
+
 // melakukan checking terhadap id sebelum merender halaman
 function pageActivator(targetId) {
   const idIsValid = pagesId.includes(targetId);
@@ -37,19 +53,3 @@ function pageScriptLoader(targetId) {
       break;
   }
 }
-
-// initial load
-$(window).on("load", () => {
-  const hash = window.location.hash;
-
-  if (hash === "#search") history.pushState(null, null, "#home");
-
-  pageActivator(window.location.hash);
-});
-
-// akan dieksekusi setiap ada pergantian url
-window.onpopstate = () => {
-  const { hash: id } = window.location;
-
-  pageActivator(id);
-};
