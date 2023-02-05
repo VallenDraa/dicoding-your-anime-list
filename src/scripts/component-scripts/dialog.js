@@ -12,7 +12,7 @@ $(document).on("click", (e) => {
   const targetTag = e.target.tagName.toLowerCase();
 
   if (targetTag === "anime-preview") {
-    const id = e.target.getAttribute("data-preview-id");
+    const id = $(e.target).attr("data-preview-id");
     let animeData = {};
 
     if (window.location.hash === "#search") {
@@ -52,7 +52,7 @@ function setDialogData(animeData) {
   $("#detail-episodes").text(animeData.episodes);
   $("#detail-status").text(animeData.status);
   $("#detail-aired").text(new Date(animeData.aired).toLocaleDateString());
-  $("#detail-genres").text(animeData.genres.join(", "));
+
   $("#detail-image").attr("src", animeData.imageUrl);
 
   // Not so straight forward data
@@ -62,6 +62,23 @@ function setDialogData(animeData) {
     $("#detail-synopsis").text(animeData.synopsis);
   } else {
     $("#detail-synopsis-wrapper").addClass("hidden").removeClass("flex");
+  }
+
+  // genres
+  if (animeData.genres.length > 0) {
+    $("#detail-genres-wrapper").removeClass("hidden");
+
+    $("#detail-genres").html("");
+
+    for (const genre of animeData.genres) {
+      $("#detail-genres").append(`
+      <li class="inline rounded-full px-2.5 py-0.5 text-xs font-medium bg-slate-600 text-slate-300">
+      ${genre}
+      </li>   
+      `);
+    }
+  } else {
+    $("#detail-genres-wrapper").addClass("hidden");
   }
 
   // trailer

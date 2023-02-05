@@ -82,11 +82,13 @@ export function loadSavedPageData() {
       lastVisiblePage: 1,
     };
   } else {
+    const lastVisiblePage = Math.ceil(savedAnimes.length / itemQtyPerPage);
+
     return {
       currentPage: 1,
-      hasNextPage: true,
+      hasNextPage: lastVisiblePage === 1 ? false : true,
       totalItem: savedAnimes.length,
-      lastVisiblePage: Math.ceil(savedAnimes.length / itemQtyPerPage),
+      lastVisiblePage,
     };
   }
 }
@@ -122,6 +124,6 @@ export function resetPageDataOnUrlChange() {
   savedPageData = {
     ...savedPageData,
     currentPage: 1,
-    hasNextPage: true,
+    hasNextPage: savedPageData.lastVisiblePage === 1 ? false : true,
   };
 }

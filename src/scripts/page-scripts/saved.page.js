@@ -6,7 +6,12 @@ import {
   renderPreviews,
   renderSkeleton,
 } from "../helpers/render-data.js";
-import { isSaved, savedAnimes, savedPageData } from "../helpers/saved-anime.js";
+import {
+  isSaved,
+  resetPageDataOnUrlChange,
+  savedAnimes,
+  savedPageData,
+} from "../helpers/saved-anime.js";
 
 import $ from "jquery";
 
@@ -34,6 +39,7 @@ export default function savedPage() {
       });
     } else {
       renderAnimeList({
+        listId: "#search-list",
         listWrapperId: "#saved-list-wrapper",
         emptyId: "#empty-saved",
       });
@@ -104,7 +110,7 @@ function resetData() {
   startIdx = 0;
   endIdx = 25;
 
-  savedPageData.hasNextPage = true;
+  resetPageDataOnUrlChange();
 }
 
 export function onUnsaveInSavedPage(idOfAnimeToRemove) {

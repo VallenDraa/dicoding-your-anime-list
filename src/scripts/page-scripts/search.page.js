@@ -45,6 +45,7 @@ export default function searchPage() {
           queryResults = formatAnimeData(animeData);
 
           renderAnimeList({
+            listId: "#search-list",
             listWrapperId: "#search-list-wrapper",
             emptyId: "#empty-search",
           });

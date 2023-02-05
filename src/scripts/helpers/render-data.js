@@ -1,6 +1,8 @@
 import $ from "jquery";
 
-export function renderAnimeList({ listWrapperId, emptyId }) {
+export function renderAnimeList({ listWrapperId, emptyId, listId }) {
+  $("#search-list").html("");
+
   $("body").css("overflow", "auto");
   $("#anime-preview-skeleton").addClass("hidden").removeClass("grid");
   $(emptyId).addClass("hidden").removeClass("flex");
