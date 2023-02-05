@@ -12,3 +12,5 @@ import "./helpers/router.js";
 
 import "./page-scripts/saved.page.js";
 import "./page-scripts/search.page.js";
+
+import "./component-scripts/dropdown-menu.js";

@@ -17,11 +17,15 @@
   >
     <!-- navbar -->
     <div class="fixed top-0 z-20 w-full bg-slate-600/20 py-3 backdrop-blur-xl">
-      <nav class="container mx-auto flex items-center justify-between px-8">
+      <!-- large screen nav -->
+      <nav
+        class="container mx-auto flex items-center justify-between gap-4 px-8"
+      >
+        <!-- link to home page -->
         <a
           data-page-router
           href="#home"
-          class="hidden text-xl font-bold text-slate-300 md:block"
+          class="hidden text-xl font-bold text-slate-300 hover:underline md:block"
           >Your Anime List</a
         >
 
@@ -48,10 +52,43 @@
         <a
           data-page-router
           href="#saved"
-          class="hidden rounded bg-teal-600 px-5 py-2.5 font-medium text-white transition-colors focus:outline-none focus:ring-4 focus:ring-teal-800 hover:bg-teal-700 md:inline"
-          >Saved Animes</a
+          class="hidden rounded-full bg-teal-600 px-5 py-2.5 font-medium text-white transition-colors focus:outline-none focus:ring-4 focus:ring-teal-800 hover:bg-teal-700 md:inline"
         >
+          Saved Animes
+        </a>
+
+        <!-- menu dropdown toggle for small screen -->
+        <button
+          id="dropdown-menu-btn"
+          type="button"
+          class="rounded-md border border-teal-600 p-1.5 px-3 text-teal-600 focus:outline-none focus:ring-4 focus:ring-teal-800 hover:bg-teal-700 hover:text-white md:hidden"
+        >
+          <i class="fa fa-bars text-2xl"></i>
+        </button>
       </nav>
+
+      <!-- small screen menu -->
+      <div
+        id="dropdown-menu"
+        class="fixed right-3.5 top-20 z-10 hidden w-44 rounded-md bg-slate-700 shadow-md shadow-slate-600 md:hidden"
+      >
+        <ul class="text-sm text-slate-200">
+          <li>
+            <a
+              href="#home"
+              class="block px-4 py-3 hover:bg-slate-600 hover:text-white"
+              >Home Page</a
+            >
+          </li>
+          <li>
+            <a
+              href="#saved"
+              class="block px-4 py-3 hover:bg-slate-600 hover:text-white"
+              >Saved Animes</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
 
     <!-- landing page -->
@@ -266,19 +303,14 @@
                 5-June-2012
               </span>
             </div>
-            <div>
+            <div id="detail-genres-wrapper">
               <h2 class="text-xl font-bold text-slate-300">Genres</h2>
-              <span id="detail-genres" class="text-slate-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, cumque.
-              </span>
+              <ul id="detail-genres" class="mt-1.5 flex flex-wrap gap-1"></ul>
             </div>
             <button
               id="detail-save-btn"
-              class="flex items-center justify-center gap-1 rounded bg-slate-500 px-5 py-2.5 font-medium text-white transition-colors focus:outline-none focus:ring-4 focus:ring-slate-700 hover:bg-slate-600"
-            >
-              <i class="fa-regular fa-bookmark text-sm"></i> Save
-            </button>
+              class="mt-4 flex items-center justify-center gap-1 rounded bg-slate-500 px-5 py-2.5 font-medium text-white transition-colors focus:outline-none focus:ring-4 focus:ring-slate-700 hover:bg-slate-600"
+            ></button>
           </div>
         </div>
 
@@ -288,20 +320,7 @@
           <p
             id="detail-synopsis"
             class="text-justify leading-loose text-slate-400"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
-            soluta sapiente odio, accusamus voluptatem ullam delectus enim
-            perspiciatis error nulla, officiis harum et dolor autem, tempora
-            quam fugiat provident nesciunt consequatur? Fugit, alias reiciendis
-            ipsam cum ullam rem autem harum optio modi a, fugiat praesentium
-            assumenda aliquam porro illo accusantium numquam vel voluptatum
-            voluptas. Obcaecati officia nihil autem placeat iste quos voluptate
-            dolores quod sit minima pariatur laudantium, illum veniam soluta
-            reprehenderit aliquid illo enim eius qui quidem, nulla corporis
-            assumenda cumque iusto! Expedita ratione quos doloremque magnam id
-            soluta laborum, aliquid temporibus odit voluptates repellat, culpa
-            incidunt aperiam quas.
-          </p>
+          ></p>
         </div>
 
         <!-- yt embed -->
