@@ -36,6 +36,7 @@
   "author": "VallenDra",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.6.3"
+    "jquery": "^3.6.3",
+    "typeit": "^8.7.1"
   }
 }
