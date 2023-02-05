@@ -46,7 +46,7 @@ function setDialogData(animeData) {
   // straight forward data
   $("#detail-title").text(animeData.title);
   $("#detail-score").html(
-    `<i class="fa-solid fa-star"></i> ${animeData.score}`
+    `<i class="fa-solid fa-star"></i> ${animeData.score}`,
   );
   $("#detail-type").text(animeData.animeType);
   $("#detail-episodes").text(animeData.episodes);

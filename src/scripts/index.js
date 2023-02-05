@@ -1,5 +1,4 @@
 import "../style.css";
-import "../../dist/style.css";
 
 import "./custom-elements/anime-preview.component.js";
 
