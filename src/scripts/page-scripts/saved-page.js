@@ -102,7 +102,7 @@ function loadMoreResults() {
   $("#load-more-saved").html(
     savedPageData.hasNextPage
       ? '<i class="fas fa-spinner animate-spin"></i>'
-      : "End of search results"
+      : "End of saved animes"
   );
 }
 
